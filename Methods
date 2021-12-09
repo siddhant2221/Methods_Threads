@@ -1,0 +1,109 @@
+public class Main extends Thread {
+    public static int amount = 0;
+
+    public static void main(String[] args) {
+        Main thread = new Main();
+        thread.start();
+        // Wait for the thread to finish
+        while(thread.isAlive()) {
+            System.out.println("Waiting...");
+        }
+        // Update amount and print its value
+        System.out.println("Main: " + amount);
+        amount++;
+        System.out.println("Main: " + amount);
+    }
+    public void run() {
+        amount++;
+    }
+}
+
+/*public class Methods_Threads extends Thread
+{
+    public void run()
+    {
+        for (int i=0; i<3 ; i++)
+            System.out.println(Thread.currentThread().getName() + " in control");
+    }
+    public static void main(String[]args)
+    {
+        Methods_Threads t1 = new Methods_Threads();
+        Methods_Threads t2 = new Methods_Threads();
+        t1.start();
+        t2.start();
+        for (int i=0; i<3; i++)
+        {
+            t1.yield();
+            System.out.println(Thread.currentThread().getName() + " in control");
+        }
+    }
+}
+public class Methods_Threads extends Thread
+{
+    public void run()
+    {
+        System.out.println("running thread name is:"+Thread.currentThread().getName());
+    }
+    public static void main(String args[])
+    {
+        Methods_Threads t1 = new Methods_Threads();
+        Methods_Threads t2 = new Methods_Threads();
+        System.out.println("t1 thread priority : " + t1.getPriority());
+        System.out.println("t2 thread priority : " + t2.getPriority());
+        t1.start();
+        t2.start();
+    }
+}
+class Methods_Threads extends Thread{
+    public void run(){
+        for(int i=1;i<5;i++)
+        {
+            try{Thread.sleep(500);
+            }
+            catch(InterruptedException e)
+            {
+                System.out.println(e);
+            }
+            System.out.println(i);
+        }
+    }
+    public static void main(String args[]){
+        Methods_Threads t1=new Methods_Threads();
+        Methods_Threads t2=new Methods_Threads();
+        t1.start();
+        t2.start();
+    }
+}
+public class Methods_Threads extends Thread
+{
+    public void run()
+    {
+        System.out.println("Priority of thread is: "+Thread.currentThread().getPriority());
+    }
+    public static void main(String args[])
+    {
+        Methods_Threads t1=new Methods_Threads();
+        t1.setPriority(Thread.MAX_PRIORITY);
+        t1.start();
+    }
+}
+public class ReflectMethodgetNa {
+    public static void main(String[] args) {
+        Method[] mthd = TestX1.class.getMethods();
+        for (Method mthd1 : mthd) {
+            System.out.println("Method: " + mthd1.getName());
+        }
+    }
+}
+
+class TestX1 {
+    private String TestField;
+
+    public String getSampleField() {
+        return TestField;
+    }
+
+    public void setSampleField(String TestField) {
+        this.TestField = TestField;
+    }
+}*/
